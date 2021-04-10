@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sito_auto.urls'
+ROOT_URLCONF = 'carzone.urls'
 
 TEMPLATES = [
     {
