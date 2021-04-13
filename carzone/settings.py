@@ -43,9 +43,10 @@ INSTALLED_APPS = [
 
 
     #My apps
+    'cars.apps.CarsConfig',
     'pages.apps.PagesConfig',
-    'users.apps.UsersConfig',
     'team.apps.TeamConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
