@@ -23,18 +23,36 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cars.html">
+                        <a
+                          {% if 'cars' == request.path %}
+                          class="nav-link active"
+                          {% else %}
+                          class="nav-link"
+                          {% endif %}
+                           href="cars.html">
                             Cars
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'pages:about' %}">
-                            About
+                        <a
+                          {% if 'about' in request.path %}
+                          class="nav-link active"
+                          {% else %}
+                          class="nav-link"
+                          {% endif %}
+                          href="{% url 'pages:about' %}">
+                          About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'pages:services' %}">
-                            Services
+                        <a
+                          {% if 'services' in request.path %}
+                          class="nav-link active"
+                          {% else %}
+                          class="nav-link"
+                          {% endif %}
+                          href="{% url 'pages:services' %}">
+                          Services
                         </a>
                     </li>
 
