@@ -44,6 +44,8 @@ INSTALLED_APPS = [
 
     #My apps
     'pages.apps.PagesConfig',
+    'users.apps.UsersConfig',
+    'team.apps.TeamConfig',
 ]
 
 MIDDLEWARE = [
@@ -111,6 +113,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Authentication settings
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -135,6 +141,10 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'pages/static')
 ]
+
+#media file
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
