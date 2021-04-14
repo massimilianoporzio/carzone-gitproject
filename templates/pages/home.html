@@ -1,5 +1,7 @@
 {% extends '_base.html' %}
 {% load static %}
+{%  load humanize %}
+{% load filters %}
 {% block content %}
 
 <!-- Banner start -->
@@ -131,9 +133,9 @@
                             <a href="car-details.html" class="car-img">
                                 <div class="tag-2">Featured</div>
                                 <div class="price-box">
-                                    <span class="del"><del>${{ fcar.price}}</del></span>
+                                    <span class="del"><del>{{ fcar.price | currency}}</del></span>
                                     <br>
-                                    <span>${{ fcar.sale_price }}</span>
+                                    <span>{{ fcar.sale_price | currency }}</span>
                                 </div>
                                 <img class="d-block w-100" src="{{ fcar.car_photo.url }}" alt="car" style="min-height: 262px; max-height: 262px;">
                             </a>
@@ -145,31 +147,27 @@
                                                 <i class="fa fa-expand"></i>
                                                 <img class="hidden" src=" {{ fcar.car_photo.url }}">
                                             </a>
-                                            {% if  fcar.car_photo1 %}
-                                            <a href="{{  fcar.car_photo1.url }}" class="hidden">
-                                                <img class="hidden" src="{{  fcar.car_photo1.url }}">
+                                            {% if  fcar.car_photo_1 %}
+                                            <a href="{{  fcar.car_photo_1.url }}" class="hidden">
+                                                <img class="hidden" src="{{  fcar.car_photo_1.url }}">
                                             </a>
                                             {% endif %}
-                                            {% if  fcar.car_photo2 %}
-                                            <a href="{{  fcar.car_photo2.url }}" class="hidden">
-                                                <img class="hidden" src="{{  fcar.car_photo2.url }}">
+                                            {% if  fcar.car_photo_2 %}
+                                            <a href="{{  fcar.car_photo_2.url }}" class="hidden">
+                                                <img class="hidden" src="{{  fcar.car_photo_2.url }}">
                                             </a>
                                             {% endif %}
-                                            {% if  fcar.car_photo3 %}
-                                            <a href="{{  fcar.car_photo3.url }}" class="hidden">
-                                                <img class="hidden" src="{{  fcar.car_photo3.url }}">
+                                            {% if  fcar.car_photo_3 %}
+                                            <a href="{{  fcar.car_photo_3.url }}" class="hidden">
+                                                <img class="hidden" src="{{  fcar.car_photo_3.url }}">
                                             </a>
                                             {% endif %}
-                                            {% if  fcar.car_photo4 %}
-                                            <a href="{{  fcar.car_photo4.url }}" class="hidden">
-                                                <img class="hidden" src="{{  fcar.car_photo4.url }}">
+                                            {% if  fcar.car_photo_4 %}
+                                            <a href="{{  fcar.car_photo_4.url }}" class="hidden">
+                                                <img class="hidden" src="{{  fcar.car_photo_4.url }}">
                                             </a>
                                             {% endif %}
-                                            {% if  fcar.car_photo5 %}
-                                            <a href="{{  fcar.car_photo5.url }}" class="hidden">
-                                                <img class="hidden" src="{{  fcar.car_photo5.url }}">
-                                            </a>
-                                            {% endif %}
+
                                         </div>
                                     </div>
                                 </div>
@@ -248,24 +246,24 @@
                                             <i class="fa fa-expand"></i>
                                             <img class="hidden" src="{{ car.car_photo.url}}" style="max-height: 262px;max-width: 262px;">
                                         </a>
-                                        {% if car.car_photo1 %}
-                                            <a href="{{ car.car_photo1.url}}" class="hidden">
-                                                <img class="hidden" src="{{ car.car_photo1.url}}" style="max-height: 262px;max-width: 262px;">
+                                        {% if car.car_photo_1 %}
+                                            <a href="{{ car.car_photo_1.url}}" class="hidden">
+                                                <img class="hidden" src="{{ car.car_photo_1.url}}" style="max-height: 262px;max-width: 262px;">
                                             </a>
                                         {% endif %}
-                                        {% if car.car_photo2 %}
-                                            <a href="{{ car.car_photo2.url}}" class="hidden">
-                                                <img class="hidden" src="{{ car.car_photo2.url}}" style="max-height: 262px;max-width: 262px;">
+                                        {% if car.car_photo_2 %}
+                                            <a href="{{ car.car_photo_2.url}}" class="hidden">
+                                                <img class="hidden" src="{{ car.car_photo_2.url}}" style="max-height: 262px;max-width: 262px;">
                                             </a>
                                         {% endif %}
-                                        {% if car.car_photo3 %}
-                                            <a href="{{ car.car_photo3.url}}" class="hidden">
-                                                <img class="hidden" src="{{ car.car_photo3.url}}" style="max-height: 262px;max-width: 262px;">
+                                        {% if car.car_photo_3 %}
+                                            <a href="{{ car.car_photo_3.url}}" class="hidden">
+                                                <img class="hidden" src="{{ car.car_photo_3.url}}" style="max-height: 262px;max-width: 262px;">
                                             </a>
                                         {% endif %}
-                                        {% if car.car_photo4 %}
-                                            <a href="{{ car.car_photo4.url}}" class="hidden">
-                                                <img class="hidden" src="{{ car.car_photo4.url}}" style="max-height: 262px;max-width: 262px;">
+                                        {% if car.car_photo_4 %}
+                                            <a href="{{ car.car_photo_4.url}}" class="hidden">
+                                                <img class="hidden" src="{{ car.car_photo_4.url}}" style="max-height: 262px;max-width: 262px;">
                                             </a>
                                         {% endif %}
                                     </div>
@@ -288,7 +286,7 @@
                             <p class="cartype">{{ car.body_style }}</p>
                         </div>
                         <div class="pull-right">
-                            <p class="price">${{ car.price }}</p>
+                            <p class="price">{{ car.price | currency}}</p>
                         </div>
                     </div>
                 </div>

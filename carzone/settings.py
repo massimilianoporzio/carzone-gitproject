@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     #Third-party app
     'ckeditor',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
     #My apps
     'cars.apps.CarsConfig',
+    'common.apps.CommonConfig',
     'pages.apps.PagesConfig',
     'team.apps.TeamConfig',
     'users.apps.UsersConfig',
@@ -123,7 +125,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'it'
 
 TIME_ZONE = 'Europe/Rome'
 
