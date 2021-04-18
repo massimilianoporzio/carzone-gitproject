@@ -144,7 +144,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'pages/static')
+    # os.path.join(BASE_DIR,'pages/static'),
+    os.path.join(BASE_DIR,'carzone/static'),
 ]
 
 #media file
