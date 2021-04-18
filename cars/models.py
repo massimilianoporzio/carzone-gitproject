@@ -2,9 +2,13 @@ from django.db import models
 from datetime import datetime
 
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 from multiselectfield import MultiSelectField
 
 # Create your models here.
+from common.util.text import unique_slug
+
+
 class Car(models.Model):
 
     state_choice = (
@@ -66,6 +70,19 @@ class Car(models.Model):
         year_choice.append((r,r))
 
     features_choices = (
+        ('Adaptive Cruise Control', 'Adaptive Cruise Control'),
+        ('Anti-theft Protection','Anti-theft Protection'),
+        ('Automatic Climate Control','Automatic Climate Control'),
+        ('Automatic Headlights','Automatic Headlights'),
+        ('Auto Start/Stop','Auto Start/Stop'),
+        ('Bi-Xenon Headlights','Bi-Xenon Headlights'),
+        ('BOSE Surround Sound','BOSE Surround Sound'),
+        ('CD/DVD Autochanger','CD/DVD Autochanger'),
+        ('Electric Parking Brake','Electric Parking Brake'),
+        ('Seat Heating','Seat Heating'),
+        ('Seat Ventilation','Seat Ventilation'),
+        ('Sport Chrono Package','Sport Chrono Package'),
+        ('Tire Pressure Monitoring','Tire Pressure Monitoring'),
         ('Cruise Control', 'Cruise Control'),
         ('Audio Interface', 'Audio Interface'),
         ('Airbags', 'Airbags'),
@@ -79,6 +96,7 @@ class Car(models.Model):
         ('Auto Start/Stop', 'Auto Start/Stop'),
         ('Wind Deflector', 'Wind Deflector'),
         ('Bluetooth Handset', 'Bluetooth Handset'),
+
     )
 
     door_choices = (
@@ -117,6 +135,18 @@ class Car(models.Model):
     no_of_owners = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=datetime.now, blank=True)
+
+    slug = models.SlugField(max_length=50, unique=True,   null=False, editable=False)
+
+
+    def save(self, *args,**kwargs):
+        if not self.slug:
+            value = str(self)
+            self.slug = unique_slug(value,type(self))
+        super().save(*args,**kwargs)
+
+    def get_absolute_url(self):
+        return reverse('cars:detail',args=[self.slug])
 
     def __str__(self):
         return self.car_title

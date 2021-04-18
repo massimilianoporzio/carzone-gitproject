@@ -130,7 +130,7 @@
                  <div class="slick-slide-item">
                     <div class="car-box-3">
                         <div class="car-thumbnail">
-                            <a href="car-details.html" class="car-img">
+                            <a href="{{ fcar.get_absolute_url }}" class="car-img">
                                 <div class="tag-2">Featured</div>
                                 <div class="price-box">
                                     <span class="del"><del>{{ fcar.price | currency}}</del></span>
@@ -175,10 +175,10 @@
                         </div>
                         <div class="detail">
                             <h1 class="title">
-                                <a href="car-details.html">{{ fcar.car_title}}</a>
+                                <a href="{{ fcar.get_absolute_url }}">{{ fcar.car_title}}</a>
                             </h1>
                             <div class="location">
-                                <a href="car-details.html">
+                                <a href="{{ fcar.get_absolute_url }}">
                                     <i class="flaticon-pin"></i>{{ fcar.state}}, {{ fcar.city }}
                                 </a>
                             </div>
@@ -221,7 +221,7 @@
                 <div class="col-lg-4 col-md-6">
                 <div class="car-box">
                     <div class="car-thumbnail">
-                        <a href="car-details.html" class="car-img">
+                        <a href="{{ car.get_absolute_url }}" class="car-img">
                             <div class="tag">For Sale</div>
                             <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                             <div class="facilities-list clearfix">
@@ -273,10 +273,10 @@
                     </div>
                     <div class="detail">
                         <h1 class="title">
-                            <a href="car-details.html">{{ car.car_title}}</a>
+                            <a href="{{ car.get_absolute_url }}">{{ car.car_title}}</a>
                         </h1>
                         <div class="location">
-                            <a href="car-details.html">
+                            <a href="{{ car.get_absolute_url }}">
                                 <i class="flaticon-pin"></i>{{ car.state}}, {{ car.city }}
                             </a>
                         </div>
