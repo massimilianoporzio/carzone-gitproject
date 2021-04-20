@@ -15,6 +15,16 @@ class HomePageView(TemplateView):
         context['featured_cars'] = Car.objects.order_by('-created_date').filter(is_featured=True)
         context['last_cars'] = Car.objects.order_by('-created_date')[:2]
         context['all_cars'] = Car.objects.order_by('-created_date')
+
+        search_models = Car.objects.values_list('model',flat=True).distinct().order_by('model')
+        search_cities = Car.objects.values_list('city', flat=True).distinct().order_by('city')
+        search_years = Car.objects.values_list('year',flat=True).distinct().order_by('year')
+        search_styles = Car.objects.values_list('body_style',flat=True).distinct().order_by('body_style')
+        context['search_models'] = search_models
+        context['search_cities'] = search_cities
+        context['search_years'] = search_years
+        context['search_styles'] = search_styles
+        context['maximum_price'] = 150000
         return context
 
 
